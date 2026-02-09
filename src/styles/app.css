@@ -1,16 +1,17 @@
 :root {
   color-scheme: light dark;
-  --bg: #ffffff;
-  --text: #1f2328;
-  --muted: #d3d6da;
-  --tile-border: #d3d6da;
-  --tile-filled: #878a8c;
+  --bg: #f4f2ed;
+  --text: #1c232a;
+  --muted: #c7ced6;
+  --tile-border: #c7ced6;
+  --tile-filled: #7d8792;
   --correct: #6ca965;
   --present: #c8b653;
-  --absent: #787c7f;
-  --key-bg: #d3d6da;
-  --modal-bg: #ffffff;
-  --shadow: 0 8px 24px rgba(0, 0, 0, 0.14);
+  --absent: #6f7780;
+  --key-bg: #cfd5dc;
+  --modal-bg: #fdfcfa;
+  --accent: #f59f00;
+  --shadow: 0 8px 24px rgba(24, 30, 36, 0.16);
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 }
 
@@ -25,6 +26,7 @@ body {
 }
 
 .app {
+  position: relative;
   min-height: 100vh;
   max-width: 560px;
   margin: 0 auto;
@@ -33,17 +35,33 @@ body {
   flex-direction: column;
 }
 
+.app::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(to bottom, rgba(245, 159, 0, 0.08), transparent 22%),
+    repeating-linear-gradient(
+      135deg,
+      rgba(28, 35, 42, 0.025) 0 12px,
+      rgba(255, 255, 255, 0) 12px 24px
+    );
+  z-index: -1;
+}
+
 .theme-dark {
-  --bg: #121213;
-  --text: #f1f3f5;
-  --muted: #3a3a3c;
-  --tile-border: #3a3a3c;
-  --tile-filled: #565758;
+  --bg: #12171d;
+  --text: #eef2f6;
+  --muted: #38414a;
+  --tile-border: #38414a;
+  --tile-filled: #59616a;
   --correct: #538d4e;
   --present: #b59f3b;
-  --absent: #3a3a3c;
-  --key-bg: #818384;
-  --modal-bg: #1d1d1f;
+  --absent: #3a434c;
+  --key-bg: #707a84;
+  --modal-bg: #1b2229;
+  --accent: #f2a900;
   --shadow: 0 10px 22px rgba(0, 0, 0, 0.45);
 }
 
@@ -57,16 +75,41 @@ body {
   grid-template-columns: 40px 1fr auto;
   align-items: center;
   gap: 0.4rem;
-  border-bottom: 1px solid var(--muted);
+  border-bottom: 2px solid color-mix(in srgb, var(--accent) 35%, var(--muted));
   padding-bottom: 0.5rem;
   margin-bottom: 1rem;
 }
 
-.header h1 {
+.title-wrap h1 {
   margin: 0;
   text-align: center;
   font-size: 1.3rem;
   font-weight: 700;
+  letter-spacing: 0.01em;
+}
+
+.title-wrap {
+  display: grid;
+  justify-items: center;
+}
+
+.morgan-logo {
+  width: 74px;
+  height: 74px;
+  object-fit: contain;
+  margin-bottom: 0.25rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+}
+
+.title-wrap p {
+  margin: 0.1rem 0 0;
+  text-align: center;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: color-mix(in srgb, var(--accent) 70%, var(--text));
 }
 
 .header-actions {
@@ -227,7 +270,7 @@ body {
 }
 
 .primary-btn {
-  background: var(--correct);
+  background: var(--accent);
   color: #fff;
   margin-top: 0.35rem;
 }

@@ -310,7 +310,11 @@ export default function App() {
       <header className="header">
         <button className="icon-btn" aria-label="Help" onClick={() => setShowHelp(true)}>?
         </button>
-        <h1>Morgan Wordle</h1>
+        <div className="title-wrap">
+          <img className="morgan-logo" src="/morgan-logo.svg" alt="Morgan logo" />
+          <h1>Morgan Wordle</h1>
+          <p>Construction Edition</p>
+        </div>
         <div className="header-actions">
           <button className="icon-btn" aria-label="Hint" onClick={() => setShowHint(true)}>
             💡
@@ -356,7 +360,7 @@ export default function App() {
       </div>
 
       <Modal open={showHelp} title="How To Play" onClose={() => setShowHelp(false)}>
-        <p>Guess the word in six tries.</p>
+        <p>Guess the construction word in six tries.</p>
         <p>Each guess must be a valid five-letter word.</p>
         <p>Tile colors show how close your guess was.</p>
         <p>Daily reset: {settings.useCompanyTime ? COMPANY_TIMEZONE : 'Your local timezone'} at midnight.</p>

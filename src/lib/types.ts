@@ -21,6 +21,16 @@ export interface GameState {
   status: GameStatus;
   currentGuess: string;
   hintUsed: boolean;
+  appliedHints: {
+    tier1: boolean;
+    tier2: boolean;
+    tier3: boolean;
+  };
+  appliedHintText: {
+    tier1: string | null;
+    tier2: string | null;
+    tier3: string | null;
+  };
   revealedAnswer: boolean;
   statsRecorded: boolean;
 }

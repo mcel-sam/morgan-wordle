@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 220" role="img" aria-label="Morgan logo">
+  <rect width="220" height="220" fill="#e6e7e8"/>
+  <g transform="translate(20,18)">
+    <path d="M0 90 L18 32 C20 24 27 18 35 18 H58 C64 18 69 21 73 26 L99 64 C102 68 103 74 101 79 L90 118 C88 124 83 128 77 128 H13 C4 128 -2 119 0 110 Z" fill="#353a44"/>
+    <path d="M106 90 L124 32 C126 24 133 18 141 18 H164 C171 18 177 23 179 30 L192 116 C193 123 188 128 181 128 H119 C110 128 104 119 106 110 Z" fill="#da1f2c"/>
+  </g>
+  <text x="110" y="178" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="54" font-weight="700" letter-spacing="1" fill="#353a44">MORGAN</text>
+</svg>

@@ -580,22 +580,41 @@ export default function App() {
 
       <Modal open={showHelp} title="How To Play" onClose={() => setShowHelp(false)}>
         <div className="howto">
-          <div className="howto-card">
-            <strong>Goal</strong>
-            <p>Solve the 5-letter construction word in 6 tries.</p>
-          </div>
-          <div className="howto-card">
-            <strong>Color Meaning</strong>
-            <div className="howto-tiles">
-              <span className="tile tile-correct"><span>A</span></span>
-              <span className="tile tile-present"><span>R</span></span>
-              <span className="tile tile-absent"><span>T</span></span>
+          <p className="howto-intro">Guess the Wordle in 6 tries.</p>
+          <ul className="howto-list">
+            <li>Each guess must be a valid 5-letter word.</li>
+            <li>The color of the tiles changes to show how close your guess is.</li>
+          </ul>
+          <h3>Examples</h3>
+          <div className="howto-example">
+            <div className="howto-example-row">
+              <span className="howto-box howto-box-correct">W</span>
+              <span className="howto-box">O</span>
+              <span className="howto-box">R</span>
+              <span className="howto-box">D</span>
+              <span className="howto-box">Y</span>
             </div>
-            <p>Green = correct spot, Yellow = in word wrong spot, Gray = not in word.</p>
+            <p><strong>W</strong> is in the word and in the correct spot.</p>
           </div>
-          <div className="howto-card">
-            <strong>Hints</strong>
-            <p>Hints unlock after misses. Apply them to pin clues on the game screen.</p>
+          <div className="howto-example">
+            <div className="howto-example-row">
+              <span className="howto-box">L</span>
+              <span className="howto-box howto-box-present">I</span>
+              <span className="howto-box">G</span>
+              <span className="howto-box">H</span>
+              <span className="howto-box">T</span>
+            </div>
+            <p><strong>I</strong> is in the word but in the wrong spot.</p>
+          </div>
+          <div className="howto-example">
+            <div className="howto-example-row">
+              <span className="howto-box">R</span>
+              <span className="howto-box">O</span>
+              <span className="howto-box">G</span>
+              <span className="howto-box howto-box-absent">U</span>
+              <span className="howto-box">E</span>
+            </div>
+            <p><strong>U</strong> is not in the word in any spot.</p>
           </div>
           <div className="howto-meta">
             Daily reset: {settings.useCompanyTime ? COMPANY_TIMEZONE : 'Your local timezone'} at midnight.
@@ -604,6 +623,28 @@ export default function App() {
       </Modal>
 
       <Modal open={showStats} title="Statistics" onClose={() => setShowStats(false)}>
+        {!settings.leaderboardTracking ? (
+          <section className="leaderboard-card">
+            <h3>Track your stats and badges</h3>
+            <p>Enable leaderboard tracking so your progress can be used for rankings.</p>
+            <button
+              type="button"
+              className="primary-btn"
+              onClick={() => {
+                applySettings({ leaderboardTracking: true });
+                showToast('Leaderboard tracking enabled');
+              }}
+            >
+              Enable leaderboard tracking
+            </button>
+            <p className="small-note">Account-based global sync can be connected later.</p>
+          </section>
+        ) : (
+          <section className="leaderboard-card leaderboard-card-enabled">
+            <h3>Leaderboard tracking is on</h3>
+            <p>Your game results are being tracked on this device.</p>
+          </section>
+        )}
         <div className="stats-grid">
           <div><strong>{stats.played}</strong><span>Played</span></div>
           <div><strong>{stats.played ? Math.round((stats.wins / stats.played) * 100) : 0}%</strong><span>Win %</span></div>
@@ -648,6 +689,14 @@ export default function App() {
             type="checkbox"
             checked={settings.useCompanyTime}
             onChange={(event) => applySettings({ useCompanyTime: event.target.checked })}
+          />
+        </label>
+        <label className="setting-row">
+          <span>Leaderboard Tracking</span>
+          <input
+            type="checkbox"
+            checked={settings.leaderboardTracking}
+            onChange={(event) => applySettings({ leaderboardTracking: event.target.checked })}
           />
         </label>
         <label className="setting-row">

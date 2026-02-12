@@ -8,7 +8,8 @@ export const defaultSettings: Settings = {
   hardMode: false,
   colorblindMode: false,
   useCompanyTime: true,
-  reducedMotionOverride: 'system'
+  reducedMotionOverride: 'system',
+  leaderboardTracking: false
 };
 
 export const defaultStats: Stats = {

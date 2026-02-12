@@ -11,6 +11,7 @@ export interface Settings {
   colorblindMode: boolean;
   useCompanyTime: boolean;
   reducedMotionOverride: 'system' | 'reduce' | 'full';
+  leaderboardTracking: boolean;
 }
 
 export interface GameState {

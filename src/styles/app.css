@@ -555,32 +555,95 @@ main {
   gap: 0.45rem;
 }
 
-.howto-card {
-  border: 1px solid color-mix(in srgb, var(--tile-border) 88%, transparent);
-  border-radius: 8px;
-  padding: 0.5rem 0.6rem;
-  background: color-mix(in srgb, var(--accent) 3%, var(--modal-bg));
+.howto-intro {
+  margin: 0;
+  font-size: 1.05rem;
+  font-weight: 700;
 }
 
-.howto-card p {
-  margin: 0.25rem 0 0;
+.howto-list {
+  margin: 0;
+  padding-left: 1.1rem;
 }
 
-.howto-tiles {
-  display: flex;
-  gap: 0.28rem;
-  margin-top: 0.35rem;
+.howto-list li {
+  margin: 0.18rem 0;
 }
 
-.howto-tiles .tile {
-  width: 34px;
-  height: 34px;
+.howto h3 {
+  margin: 0.2rem 0 0;
   font-size: 1rem;
+}
+
+.howto-example {
+  border: 1px solid color-mix(in srgb, var(--tile-border) 85%, transparent);
+  border-radius: 8px;
+  padding: 0.45rem 0.55rem;
+  background: color-mix(in srgb, var(--accent) 2%, var(--modal-bg));
+}
+
+.howto-example p {
+  margin: 0.3rem 0 0;
+}
+
+.howto-example-row {
+  display: flex;
+  gap: 0.24rem;
+}
+
+.howto-box {
+  width: 32px;
+  height: 32px;
+  border: 2px solid #aeb2b6;
+  display: grid;
+  place-items: center;
+  font-weight: 800;
+  font-size: 1.1rem;
+  background: var(--modal-bg);
+}
+
+.howto-box-correct {
+  background: var(--correct);
+  border-color: var(--correct);
+  color: #fff;
+}
+
+.howto-box-present {
+  background: var(--present);
+  border-color: var(--present);
+  color: #fff;
+}
+
+.howto-box-absent {
+  background: var(--absent);
+  border-color: var(--absent);
+  color: #fff;
 }
 
 .howto-meta {
   font-size: 0.82rem;
   opacity: 0.9;
+}
+
+.leaderboard-card {
+  border: 1px solid color-mix(in srgb, var(--accent) 24%, var(--muted));
+  border-radius: 10px;
+  padding: 0.65rem 0.75rem;
+  background: color-mix(in srgb, var(--accent) 6%, var(--modal-bg));
+  margin-bottom: 0.65rem;
+}
+
+.leaderboard-card h3 {
+  margin: 0 0 0.25rem;
+}
+
+.leaderboard-card p {
+  margin: 0.2rem 0;
+}
+
+.leaderboard-card-enabled {
+  border-color: color-mix(in srgb, var(--correct) 35%, var(--muted));
+  background: color-mix(in srgb, var(--correct) 9%, var(--modal-bg));
 }
 
 .toast {
